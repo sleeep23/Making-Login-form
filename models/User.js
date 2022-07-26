@@ -3,16 +3,20 @@ const mongoose = require('mongoose')
 const UserSchema = mongoose.Schema({
     name: {
         type: String,
-        maxLength: 50,
+        maxLength: 50
     },
     email: {
         type: String,
         trim: true,
-        unique: 1,
+        unique: 1
+    },
+    password: {
+        type: String,
+        minLength: 5
     },
     lastname: {
         type: String,
-        maxLength: 50,
+        maxLength: 50
     },
     role: {
         type: Number,
