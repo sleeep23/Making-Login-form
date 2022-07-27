@@ -5,6 +5,7 @@ const port = 3000
 const mongoose = require('mongoose')
 const {User} = require("./models/User");
 const bodyParser = require("body-parser");
+const config = require('./config/key')
 
 // application/x-www-form-urlencoded 형태의 데이터 분석 및 가져오기
 app.use(bodyParser.urlencoded({extended: true}))
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 // application/json 형태의 파일을 가져올 수 있도록 하는 구문
 app.use(bodyParser.json())
 
-mongoose.connect('mongodb+srv://user1:abcd1234@boilerplate-1.ggdcjup.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(config.mongoURI)
     .then(() => console.log('MongoDB connected!'))
     .catch((e) => console.log('MongoDB Error: ', e))
 
